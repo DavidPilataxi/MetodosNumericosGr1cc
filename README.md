@@ -1,2 +1,2 @@
-# M-todosNum-ricosGr1cc
-Repositorio de Métodos Numéricos
+# MetodosNumericosGr1cc
+Repositorio de Métodos Numéricos de David Pilataxi
