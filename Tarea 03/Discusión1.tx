@@ -1,0 +1,21 @@
+Pseudocódigo Calcular raíces ecuación cuadrática
+Entrada función:
+- a, b, c
+
+Calcular discriminante:
+- disc = b^2 - 4 * a * c
+
+Si disc >= 0 entonces:
+    Si b > 0 entonces:
+        - x1 = (-b - sqrt(disc)) / (2 * a)
+        - x2 = (2 * c) / (-b - sqrt(disc))
+    Sino:
+        - x1 = (-b + sqrt(disc)) / (2 * a)
+        - x2 = (2 * c) / (-b + sqrt(disc))
+Sino:
+    - x1 = (-b + sqrt(disc)) / (2 * a)
+    - x2 = (-b - sqrt(disc)) / (2 * a)
+
+Imprimir las raíces:
+- x1
+- x2
