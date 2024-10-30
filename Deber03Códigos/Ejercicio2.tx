@@ -1,0 +1,26 @@
+Pseudocódigo:
+
+Función: terminos_maclaurin_arctan(eps, max_iter = 1000000)
+
+Inicializar:
+- n = 1
+- aprox_pi = 0
+- x = 1
+
+Mientras n <= max_iter:
+    - t = (-1)^(n + 1) * x^(2 * n - 1) / (2 * n - 1)  // Calcular término
+    - aprox_pi = aprox_pi + t  // Actualizar aproximación de π
+    - Si |4 * aprox_pi - π| < eps entonces:
+        - Retornar n  // Devolver número de términos si se cumple la precisión
+    - n = n + 1  // Incrementar contador
+
+Si n > max_iter:
+- Retornar n - 1  // Devolver el número de términos antes de alcanzar el límite
+
+// Ejecución de Parte a:
+n_terms = terminos_maclaurin_arctan(10^-3)
+Imprimir "Número de términos para |4Pn(1) - π| < 10^-3: ", n_terms
+
+// Ejecución de Parte b:
+n_terms_high_prec = terminos_maclaurin_arctan(10^-10)
+Imprimir "Número de términos para |4Pn(1) - π| < 10^-10: ", n_terms_high_prec
