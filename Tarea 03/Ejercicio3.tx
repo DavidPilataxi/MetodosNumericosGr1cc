@@ -1,0 +1,31 @@
+Función 'arc_t(x, n_terms)'
+1. Inicializar 'arc_x' = 0
+2. Para i desde 0 hasta n_terms - 1:
+    - t = ((-1)^i * x^(2 * i + 1)) / (2 * i + 1)  // Calcular término
+    - arc_x = arc_x + t  // Actualizar aproximación de arctan(x)
+
+Constantes:
+    x1 = 1 / 5
+    x2 = 1 / 239
+
+Función calc_pi(n_terms)
+1. arc1_5 = arc_t(x1, n_terms)
+2. arc1_239 = arc_t(x2, n_terms)
+3. pi_approx = 4 * (4 * arc1_5 - arc1_239)  // Calcular aproximación de π
+4. Retornar pi_approx
+
+Variables y Constantes para el Cálculo Principal:
+    target_prec = 10^(-3)
+    true_pi = π (valor conocido)
+    Inicializar n_terms = 1
+    Inicializar pi_calc = calc_pi(n_terms)
+
+Bucle de Precisión:
+Mientras |pi_calc - true_pi| > target_prec:
+    - n_terms = n_terms + 1  // Incrementar número de términos
+    - pi_calc = calc_pi(n_terms)  // Recalcular π
+
+Salida de Resultados:
+1. Imprimir "Número de términos necesarios: " + n_terms
+2. Imprimir "Valor calculado de π: " + truncar(pi_calc, 3)
+3. Imprimir "Error: " + truncar(|pi_calc - true_pi|, 3)

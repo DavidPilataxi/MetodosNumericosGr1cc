@@ -1,0 +1,18 @@
+Pseudocódigo Determinación de Sumas
+
+1. Inicializar 't_sum' = 0
+2. Para i desde 1 hasta n:
+    Para j desde 1 hasta i:
+        - prod = a_1 * b_j  // Calcular producto de elementos
+        - t_sum = t_sum + prod  // Acumular producto en la suma total
+3. Retornar 't_sum'
+
+Pseudocódigo método abreviado
+1. Inicializar un arreglo 's' de longitud n+1 con ceros
+2. Calcular sumas acumulativas en 's' en orden inverso:
+   Para i desde n hasta 1:
+       - s[i] = a[i] + s[i + 1]  // Acumular sumas en orden decreciente
+3. Inicializar 't_sum' = 0
+4. Para cada j desde 1 hasta n:
+       - t_sum = t_sum + b[j] * s[j]  // Acumular producto de b[j] y s[j]
+5. Retornar 't_sum'
