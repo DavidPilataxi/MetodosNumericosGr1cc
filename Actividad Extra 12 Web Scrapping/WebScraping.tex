@@ -1,0 +1,476 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Listado de Figuras}
+\else
+  \newcommand\listfigurename{Listado de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Listado de Tablas}
+\else
+  \newcommand\listtablename{Listado de Tablas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\definecolor{QuartoInternalColor6}{rgb}{0.38,0.38,0.38}
+\definecolor{QuartoInternalColor7}{rgb}{0.00,0.45,0.15}
+\definecolor{QuartoInternalColor8}{rgb}{0.60,0.00,0.00}
+\definecolor{QuartoInternalColor5}{rgb}{0.00,0.00,1.00}
+\definecolor{QuartoInternalColor1}{rgb}{0.91,0.36,0.35}
+\definecolor{QuartoInternalColor4}{rgb}{0.00,0.40,0.00}
+\definecolor{QuartoInternalColor2}{rgb}{0,0,0}
+\definecolor{QuartoInternalColor3}{rgb}{0.00,0.64,0.31}
+\makeatother
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{spanish}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={{[}Actividad extracurricular 12{]} web scraping},
+  pdfauthor={David Pilataxi},
+  pdflang={es},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{{[}Actividad extracurricular 12{]} web scraping}
+\author{David Pilataxi}
+\date{2025-08-01}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Tabla de Contenidos}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\section{Web Scrapping}\label{web-scrapping}
+
+\begin{itemize}
+\tightlist
+\item
+  David Pilataxi
+\item
+  Gr1cc
+\item
+  8 de enero de 2025
+\end{itemize}
+
+\subsection{Enlace al Repositorio}\label{enlace-al-repositorio}
+
+LINK:
+https://github.com/DavidPilataxi/MetodosNumericosGr1cc/blob/main/Actividad\%20Extra\%2012\%20Web\%20Scrapping/WebScraping.ipynb
+
+\section{1. Objetivos}\label{objetivos}
+
+\begin{itemize}
+\tightlist
+\item
+  Revisar qué es web scraping
+\item
+  Realizar una prueba en python para dos librerías diferentes
+\item
+  Realizar scraping de un sitio web de su elección
+\end{itemize}
+
+\section{2. Introducción}\label{introducciuxf3n}
+
+Es el proceso de extraer datos de sitios web de manera automatizada
+utilizando herramientas o scripts. Esto se logra accediendo al contenido
+de las páginas web, ya sea analizando el HTML, extrayendo datos
+estructurados, o interactuando con elementos dinámicos.
+
+Aplicaciones comunes de web scraping:
+
+\begin{itemize}
+\tightlist
+\item
+  Análisis de precios en sitios de comercio electrónico.
+\item
+  Monitorización de noticias o contenidos en tiempo real.
+\item
+  Recolección de información para proyectos de investigación o estudios
+  de mercado.
+\item
+  Extracción de datos de directorios en línea o bases de datos
+  accesibles públicamente.
+\end{itemize}
+
+Herramientas populares para web scraping:
+
+\begin{itemize}
+\tightlist
+\item
+  BeautifulSoup (Python) para extraer datos de HTML.
+\item
+  Selenium para interactuar con páginas dinámicas.
+\item
+  Scrapy, un framework avanzado para tareas de scraping masivo.
+\end{itemize}
+
+\section{3. Procedimiento}\label{procedimiento}
+
+Web Scraping: BeautifulSoup vs Scrapy
+
+\textbf{Configuración inicial}
+
+\begin{itemize}
+\tightlist
+\item
+  !pip install requests beautifulsoup4 pandas scrapy
+\end{itemize}
+
+\subsubsection{3.1. Web Scraping con BeautifulSoup.
+-}\label{web-scraping-con-beautifulsoup.--}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ requests}
+\ImportTok{from}\NormalTok{ bs4 }\ImportTok{import}\NormalTok{ BeautifulSoup}
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+
+\CommentTok{\# URL del sitio web}
+\NormalTok{url }\OperatorTok{=} \StringTok{"https://www.python.org/blogs/"}
+
+\CommentTok{\# Enviar la solicitud HTTP}
+\NormalTok{response }\OperatorTok{=}\NormalTok{ requests.get(url)}
+
+\CommentTok{\# Verificar si la solicitud fue exitosa}
+\ControlFlowTok{if}\NormalTok{ response.status\_code }\OperatorTok{==} \DecValTok{200}\NormalTok{:}
+\NormalTok{    soup }\OperatorTok{=}\NormalTok{ BeautifulSoup(response.text, }\StringTok{"html.parser"}\NormalTok{)}
+
+    \CommentTok{\# Ajustar los selectores para títulos y enlaces}
+\NormalTok{    titles }\OperatorTok{=}\NormalTok{ [title.text.strip() }\ControlFlowTok{for}\NormalTok{ title }\KeywordTok{in}\NormalTok{ soup.select(}\StringTok{"li h3"}\NormalTok{)]}
+\NormalTok{    links }\OperatorTok{=}\NormalTok{ [link[}\StringTok{\textquotesingle{}href\textquotesingle{}}\NormalTok{] }\ControlFlowTok{for}\NormalTok{ link }\KeywordTok{in}\NormalTok{ soup.select(}\StringTok{"li h3 a"}\NormalTok{)]}
+
+    \CommentTok{\# Crear DataFrame}
+\NormalTok{    data }\OperatorTok{=}\NormalTok{ pd.DataFrame(\{}\StringTok{"Título"}\NormalTok{: titles, }\StringTok{"Enlace"}\NormalTok{: links\})}
+\NormalTok{    data.to\_csv(}\StringTok{"python\_org\_blogs.csv"}\NormalTok{, index}\OperatorTok{=}\VariableTok{False}\NormalTok{)}
+
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Datos extraídos de Python.org:"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(data.head())}
+\ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Error: No se pudo acceder al sitio web. Código de estado }\SpecialCharTok{\{}\NormalTok{response}\SpecialCharTok{.}\NormalTok{status\_code}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Datos extraídos de Python.org:
+                                              Título  \
+0     PSF Grants: Program & Charter Updates (Part 1)   
+1       PSF Grants: Program & Charter Updates (TLDR)   
+2     PSF Grants: Program & Charter Updates (Part 3)   
+3  Announcing Python Software Foundation Fellow M...   
+4                       Python 3.14.0 alpha 3 is out   
+
+                                              Enlace  
+0  https://pyfound.blogspot.com/2024/12/psf-grant...  
+1  https://pyfound.blogspot.com/2024/12/psf-grant...  
+2  https://pyfound.blogspot.com/2024/12/12psf-gra...  
+3  https://pyfound.blogspot.com/2024/12/announcin...  
+4  https://pythoninsider.blogspot.com/2024/12/pyt...  
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Imagen1.png}}
+
+\subsubsection{3.2. Web Scraping con
+Scrapy}\label{web-scraping-con-scrapy}
+
+Pasos en terminal: - pip install scrapy - scrapy startproject
+quotes\_scraper - scrapy crawl quotes -o quotes.json\\
+El siguiente es el código para el web scrapping, y acontinuación, se
+presenta el resultado tras correrlo desde la terminal en un archivo
+independiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\KeywordTok{class}\NormalTok{ QuotesSpider(scrapy.Spider):}
+\NormalTok{    name }\OperatorTok{=} \StringTok{\textquotesingle{}quotes\textquotesingle{}}
+\NormalTok{    start\_urls }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}http://quotes.toscrape.com/\textquotesingle{}}\NormalTok{]}
+
+    \KeywordTok{def}\NormalTok{ parse(}\VariableTok{self}\NormalTok{, response):}
+        \CommentTok{\# Extraer todas las citas de la página}
+        \ControlFlowTok{for}\NormalTok{ quote }\KeywordTok{in}\NormalTok{ response.css(}\StringTok{\textquotesingle{}div.quote\textquotesingle{}}\NormalTok{):}
+            \ControlFlowTok{yield}\NormalTok{ \{}
+                \StringTok{\textquotesingle{}text\textquotesingle{}}\NormalTok{: quote.css(}\StringTok{\textquotesingle{}span.text::text\textquotesingle{}}\NormalTok{).get(),}
+                \StringTok{\textquotesingle{}author\textquotesingle{}}\NormalTok{: quote.css(}\StringTok{\textquotesingle{}span small::text\textquotesingle{}}\NormalTok{).get(),}
+                \StringTok{\textquotesingle{}tags\textquotesingle{}}\NormalTok{: quote.css(}\StringTok{\textquotesingle{}div.tags a.tag::text\textquotesingle{}}\NormalTok{).getall(),}
+\NormalTok{            \}}
+
+        \CommentTok{\# Seguir al siguiente página, si existe}
+\NormalTok{        next\_page }\OperatorTok{=}\NormalTok{ response.css(}\StringTok{\textquotesingle{}li.next a::attr(href)\textquotesingle{}}\NormalTok{).get()}
+        \ControlFlowTok{if}\NormalTok{ next\_page:}
+            \ControlFlowTok{yield}\NormalTok{ response.follow(next\_page, }\VariableTok{self}\NormalTok{.parse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Highlighting}
+\textcolor{black}{NameError: name 'scrapy' is not defined}
+\textcolor{black}{}\textcolor{QuartoInternalColor1}{---------------------------------------------------------------------------}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{NameError}\textcolor{QuartoInternalColor2}{                                 Traceback (most recent call last)}
+\textcolor{QuartoInternalColor2}{Cell }\textcolor{QuartoInternalColor3}{In[4], line 1}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor3}{----> 1}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor4}{class}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor5}{QuotesSpider}\textcolor{QuartoInternalColor2}{(scrapy}\textcolor{QuartoInternalColor6}{.}\textcolor{QuartoInternalColor2}{Spider):}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor7}{      2}\textcolor{QuartoInternalColor2}{     name }\textcolor{QuartoInternalColor6}{=}\textcolor{QuartoInternalColor2}{ }\textcolor{QuartoInternalColor8}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor8}{quotes}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor8}{'}\textcolor{QuartoInternalColor2}{}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor7}{      3}\textcolor{QuartoInternalColor2}{     start_urls }\textcolor{QuartoInternalColor6}{=}\textcolor{QuartoInternalColor2}{ [}\textcolor{QuartoInternalColor8}{'}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor8}{http://quotes.toscrape.com/}\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor8}{'}\textcolor{QuartoInternalColor2}{]}
+\textcolor{QuartoInternalColor2}{}\textcolor{QuartoInternalColor1}{NameError}\textcolor{QuartoInternalColor2}{: name 'scrapy' is not defined}
+\end{Highlighting}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Imagen2.png}}
+
+\section{4. Conclusiones}\label{conclusiones}
+
+\begin{itemize}
+\item
+  BeautifulSoup destaca por su simplicidad, lo que lo convierte en una
+  opción ideal para proyectos pequeños o tareas de scraping sencillas.
+\item
+  Scrapy, por otro lado, es una herramienta escalable, diseñada para
+  manejar proyectos más complejos o grandes volúmenes de datos, lo que
+  lo convierte en la opción preferida para scraping masivo.
+\item
+  Entre las limitaciones comunes en el scraping, se encuentran los
+  problemas legales, ya que es importante respetar las políticas de uso
+  de los sitios web. Además, pueden surgir bloqueos o restricciones en
+  los sitios que dificultan la recolección de datos.
+\item
+  Una consideración adicional es la gestión de la eficiencia, ya que
+  Scrapy, al ser más robusto, permite manejar peticiones concurrentes y
+  tiempos de espera, mientras que BeautifulSoup puede volverse menos
+  eficiente en proyectos más grandes debido a su naturaleza más simple.
+\end{itemize}
+
+\section{5. Referencias
+Bibliográficas}\label{referencias-bibliogruxe1ficas}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Requests:}
+\end{itemize}
+
+Reitz, K. (2023). Requests: HTTP for Humans. Python Software Foundation.
+Recuperado de https://docs.python-requests.org/en/latest/
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{BeautifulSoup:}
+\end{itemize}
+
+Richardson, L. (2023). Beautiful Soup Documentation. Python Software
+Foundation. Recuperado de https://www.crummy.com/software/BeautifulSoup/
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Pandas:}
+\end{itemize}
+
+McKinney, W. (2010). Data Structures for Statistical Computing in
+Python. In Proceedings of the 9th Python in Science Conference
+(pp.~51-56). Recuperado de https://pandas.pydata.org/
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Scrapy:}
+\end{itemize}
+
+Scrapy Developers. (2023). Scrapy Documentation. Recuperado de
+https://docs.scrapy.org/en/latest/
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Sitio web objetivo:}
+\end{itemize}
+
+Quotes to Scrape. (s.f.). Recuperado de https://quotes.toscrape.com
+
+
+
+
+\end{document}
